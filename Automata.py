@@ -13,17 +13,26 @@ class Automata():
         self.radio = []
         self.theta = []
         self.a = np.zeros((dim, dim))
-        self.a[1, 0] = 1
-        self.a[8, 2] = 1
-        self.a[4, 4] = 1
-        self.a[14, 3] = 1
-        self.a[10, 7] = 1
-        self.a[5, 7] = 1
-        self.a[4, 2] = 1
-        self.a[11, 14] = 1
-        self.a[15, 7] = 1
         self.a[15, 13] = 1
-
+        self.a[19, 7] = 1
+        self.a[14, 17] = 1
+        self.a[2, 16] = 1
+        self.a[8, 14] = 1
+        self.a[3, 6] = 1
+        self.a[19, 7] = 1
+        self.a[19, 10] = 1
+        self.a[0, 8] = 1
+        self.a[15, 12] = 1
+        self.a[18, 15] = 1
+        self.a[8, 19] = 1
+        self.a[16, 19] = 1
+        self.a[12, 17] = 1
+        self.a[19, 13] = 1
+        self.a[16, 13] = 1
+        self.a[17, 15] = 1
+        self.a[4, 6] = 1
+        self.a[6, 14] = 1
+        self.a[15, 4] = 1
     def inicia(self,etapas):
         for etapa in range(etapas):
                 self.inspeccionMatrice()
@@ -68,6 +77,7 @@ class Automata():
                 self.indiceFuera(self.e1[i],self.e2[i])
 
         self.nuevoconteo()
+
     def indiceFuera(self,ejex,ejey):
         if (ejex == 0):
             self.nuevaubicacion.append((dim-1,ejey))
@@ -93,21 +103,20 @@ class Automata():
         self.theta = []
         for i in range(len(self.nuevaubicacion)):
             self.a[self.nuevaubicacion[i]] = 1
-
         self.nuevaubicacion=[]
 
 
 
-
+#------------------------------
 etapas = int(input("etapas: "))
 
 
-#-------------------------
-dim=20;
-miAutomata = Automata(dim);
+
+#----------------------------
+dim=20
+miAutomata = Automata(dim)
 miAutomata.inicia(etapas)
 
 #-------------------------
 animation = camera.animate()
 animation.save('celluloid_minimal.gif', writer = 'imagemagick')
-
