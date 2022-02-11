@@ -1,5 +1,4 @@
 import random
-
 def movimientoAutomata():
     n1 = random.randint(0,19)
     n2 = random.randint(0,19)
